@@ -1,13 +1,16 @@
-
-import { ChackNoris } from "./components/ChackNoris/ChackNoris";
+import React from "react";
+import  UseEffect  from "./UseEffect";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 function App() {
-  return (
-    <>
-   
-    </>
-  );
+	return (
+		<>
+		<UseEffect />
+		</>
+);
 }
-
 export default App;
+
+
+
