@@ -1,12 +1,12 @@
 import React from "react";
-import  UseEffect  from "./UseEffect";
+import  UseEffect  from "./hooks/UseEffect";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import Person from "./Person";
 
 function App() {
 	return (
 		<>
-		<UseEffect />
+		<Person/>
 		</>
 );
 }
