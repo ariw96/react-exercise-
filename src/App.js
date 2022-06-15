@@ -1,31 +1,31 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-
-import "./App.css";
-import axios from "axios";
-function App() {
-
-const data= async()=>{
-	try{
-		const response =await axios.get("https://nameless-cove-68474.herokuapp.com");
-		return response.data;
-		console.log(response.data);
-	}
-	catch(error){
-		console.log(error);
+import { useState, useReducer } from "react";
+function reducer(state, action) {
+	switch (action.type) {
+		case "ADD_TODO":
+			return [...state, action.name];
+		default:
+			return state;
 	}
 }
-data();
 
+function App() {
+	const [todo, dispatch] = useReducer(reducer, []);
+	const [name, setName] = useState("");
+	function handleSubmit(e) {
+		e.preventDefault();
+		dispatch({ type: "ADD_TODO", name });
+		setName("");
+	}
 	return (
 		<>
-		hello
-		
+			<form onSubmit={handleSubmit}>
+				<input
+					type="text"
+					value={name}
+					onChange={(e) => setName(e.target.value)}
+				/>
+			</form>
 		</>
-);
+	);
 }
 export default App;
-
-
-
